@@ -1,71 +1,66 @@
 
-// IMD : to get a list of search movies 
-// url/en/API/SearchMovie/{apiKey}/{expression}aka the movie searched
 
+// IMD API WEBSITE: https://imdb-api.com/api/#Top250Movies-header
 
 const moviesApp = {};
 
-// --> API info
+// --> API INFO:
 moviesApp.apiKey = 'k_bsagv4oc';
-moviesApp.apiUrl = 'https://imdb-api.com/en/API/SearchMovie/';
+moviesApp.apiUrl = 'https://imdb-api.com/en/API/MostPopularMovies/';
 
 
-// --> function to request info from the API
+// --> FUNCTION TO REQUEST INFO FROM THE API: 
 moviesApp.getMovies = () => { 
     // make the url with the required api parameters
 
     const url = new URL(moviesApp.apiUrl);
     url.search = new URLSearchParams({
-    // adding api key as query parameter
-            apiKey: moviesApp.apiKey,
+        apiKey: moviesApp.apiKey
     })
-    
-    console.log(url);
 
-
-// --> fetch() to make the api request
+// --> FETCH() TO MAKE API REQUEST: 
     fetch(url)
         .then((response) => {
             return response.json();
         })
         .then((jsonResponse) => {
             console.log(jsonResponse);
-            
+            // moviesApp.displayMovies(jsonResponse);
         })
-
 }
 
-// // --> function to display movies on the age
-// moviesApp.displayMovies = (arrayDataFromAPI) => {
 
-//     document.addEventListener('click', button)
-//     // search button ... 
+// // --> FUNCTION TO DISPLAY MOVIES ON THE PAGE:
+//     moviesApp.displayMovies = (arrayofMovies) => {
 
-//     // document. 
+//         const ul = document.querySelector('ul');
+        
+//         arrayofMovies.forEach( (item) => {
+
+//         // create a list item element
+// 		const li = document.createElement('li');
+
+// 		// create a image element for inside the <li> 
+// 		const img = document.createElement('img');
+
+// 		// add the content to the img element (src & alt text)
+// 		img.src = item.image;
+// 		img.alt = item.fullTitle;
+
+// 		// appending the img element to the li
+// 		li.append(img);
+// 		// append li to the gallery ul
+// 		ul.append(li);
+
+//         })
+//     }
+
+// --> FUNCTION TO ADD EVENT LISTENERS:
 //     // run search after user types in movie name in search bar 
 
-
-
-//     // COLINS CODE
-//     const ul = document.querySelector('ul');
-    
-//     arrayDataFromAPI.forEach( (item) => {
-
-//         const li = document.createElement('li');
-//         const img = document.createElement('img');
-
-//         // add content to img
-//         img.src = item.image;
-//         img.alt = item.description;
-//         img.title = item.title;
-
-//         li.appendChild(img);
-//         ul.appendChild(li);
-
-//     })
-// }
-
-// moviesApp.displayMovies();
+//     document.addEventListener('submit', button)
+//     // search button ... 
 
 moviesApp.getMovies();
+
 
