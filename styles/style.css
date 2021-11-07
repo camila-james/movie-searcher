@@ -251,6 +251,55 @@ html {
   margin: 0 auto;
 }
 
+.main {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.link {
+  background: none;
+  border: none;
+  text-decoration: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.dropdown {
+  position: relative;
+  background: gray;
+}
+
+.dropdownMenu {
+  position: absolute;
+  background: #a5a5a5;
+  padding: 0.75rem;
+  border-radius: 0.25rem;
+  -webkit-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.1);
+          box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.1);
+  pointer-events: none;
+  opacity: 0;
+  -webkit-transform: translate(-10px);
+          transform: translate(-10px);
+  -webkit-transition: opacity 150ms ease-in-out, -webkit-transform 150ms ease-in-out;
+  transition: opacity 150ms ease-in-out, -webkit-transform 150ms ease-in-out;
+  transition: opacity 150ms ease-in-out, transform 150ms ease-in-out;
+  transition: opacity 150ms ease-in-out, transform 150ms ease-in-out, -webkit-transform 150ms ease-in-out;
+}
+
+.dropdown > .link:focus + .dropdownMenu {
+  opacity: 1;
+  -webkit-transform: translateY(0);
+          transform: translateY(0);
+  pointer-events: auto;
+}
+
 footer {
   background: black;
   text-align: center;
