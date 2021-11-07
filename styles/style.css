@@ -285,8 +285,8 @@ form {
           box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.1);
   pointer-events: none;
   opacity: 0;
-  -webkit-transform: translate(-10px);
-          transform: translate(-10px);
+  -webkit-transform: translateY(-10px);
+          transform: translateY(-10px);
   -webkit-transition: opacity 150ms ease-in-out, -webkit-transform 150ms ease-in-out;
   transition: opacity 150ms ease-in-out, -webkit-transform 150ms ease-in-out;
   transition: opacity 150ms ease-in-out, transform 150ms ease-in-out;
