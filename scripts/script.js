@@ -25,35 +25,34 @@ moviesApp.getMovies = () => {
         })
         .then((jsonResponse) => {
             console.log(jsonResponse);
-            // moviesApp.displayMovies(jsonResponse);
+            moviesApp.displayMovies(jsonResponse);
         })
 }
 
 
-// // --> FUNCTION TO DISPLAY MOVIES ON THE PAGE:
-//     moviesApp.displayMovies = (arrayofMovies) => {
+// --> FUNCTION TO DISPLAY MOVIES ON THE PAGE:
+    moviesApp.displayMovies = (arrayOfMovies) => {
 
-//         const ul = document.querySelector('ul');
-        
-//         arrayofMovies.forEach( (item) => {
+        const ul = document.querySelector('ul');
+        arrayOfMovies.items.forEach((item) => {
 
-//         // create a list item element
-// 		const li = document.createElement('li');
+        // create a list item element
+		const li = document.createElement('li');
 
-// 		// create a image element for inside the <li> 
-// 		const img = document.createElement('img');
+		// create a image element for inside the <li> 
+		const img = document.createElement('img');
 
-// 		// add the content to the img element (src & alt text)
-// 		img.src = item.image;
-// 		img.alt = item.fullTitle;
+		// add the content to the img element (src & alt text)
+		// img.src = items.image;
+		img.alt = item.fullTitle;
 
-// 		// appending the img element to the li
-// 		li.append(img);
-// 		// append li to the gallery ul
-// 		ul.append(li);
-
-//         })
-//     }
+        li.innerHTML = `${item.fullTitle}`;
+		// appending the img element to the li
+		// li.append(img);
+		// append li to the gallery ul
+		ul.append(li);
+        })
+    }
 
 // --> FUNCTION TO ADD EVENT LISTENERS:
 //     // run search after user types in movie name in search bar 
