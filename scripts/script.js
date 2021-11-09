@@ -6,7 +6,8 @@ const moviesApp = {};
 
 // --> API INFO:
 moviesApp.apiKey = 'k_bsagv4oc';
-moviesApp.apiUrl = 'https://imdb-api.com/en/API/MostPopularMovies/';
+moviesApp.apiKey = 'k_af7vd4w1';
+moviesApp.apiUrl = 'https://imdb-api.com/en/API/SearchMovie/';
 
 
 // --> FUNCTION TO REQUEST INFO FROM THE API: 
@@ -34,7 +35,8 @@ moviesApp.getMovies = () => {
     moviesApp.displayMovies = (arrayOfMovies) => {
 
         const ul = document.querySelector('ul');
-        arrayOfMovies.items.forEach((item) => {
+        // for (let i = 0; i < 10; i++) 
+        arrayOfMovies.results.forEach((item) => {
 
         // create a list item element
 		const li = document.createElement('li');
@@ -43,23 +45,29 @@ moviesApp.getMovies = () => {
 		const img = document.createElement('img');
 
 		// add the content to the img element (src & alt text)
-		// img.src = items.image;
-		img.alt = item.fullTitle;
+		img.src = item.image;
+		img.alt = item.title;
 
-        li.innerHTML = `${item.fullTitle}`;
+        li.innerHTML = `${item.title}`;
 		// appending the img element to the li
-		// li.append(img);
+		li.append(img);
 		// append li to the gallery ul
 		ul.append(li);
         })
     }
 
 // --> FUNCTION TO ADD EVENT LISTENERS:
-//     // run search after user types in movie name in search bar 
+    // run search after user types in movie name in search bar 
+    function handleClick(){
+        // search the API for the movie typed in search
+    }
 
-//     document.addEventListener('submit', button)
-//     // search button ... 
+    document.addEventListener('submit', handleClick)
 
+    // search button ... 
+
+    
 moviesApp.getMovies();
+
 
 
