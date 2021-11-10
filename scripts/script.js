@@ -15,7 +15,6 @@ moviesApp.keywordEndPoint = 'en/API/SearchKeyword/';
 
 // getting info from the API
 moviesApp.getMovies = (movie) => { 
-    console.log(movie);
     const url = new URL(`${moviesApp.baseUrl}${moviesApp.searchMovieEndPoint}`);
     url.search = new URLSearchParams({
         apiKey: moviesApp.apiKey,
@@ -29,8 +28,7 @@ moviesApp.getMovies = (movie) => {
             return response.json();
         })
         .then((data) => {
-            // moviesApp.displayMovies(data);
-            console.log(data)
+            moviesApp.displayMovies(data);
         })
         // data is the json response 
 }
@@ -39,31 +37,37 @@ moviesApp.getMovies = (movie) => {
 // function to display the info on the page
 moviesApp.displayMovies = (data) => {
 
-// <div class="movies">
-//    <ul>
-//       <h2>title of movie</h2>
-//       <img src="" alt="">
-//    </ul>
-// </div>
+    /* <div class="movies">
+    <ul>
+        <h2>title of movie</h2>
+        <img src="" alt="">
+    </ul>
+    </div> */
+    const ulElement = document.getElementById('moviesList');
 
-    // data.results.forEach( (item) => {
-    // // creating elements to display on page
-    // // for (let i = 0; i < 10; i++)
+    // console.log();
+    // loop through results array
+    // for each element make and li and add h2+img to it
+    for (let i = 0; i < data.results.length; i++) {
+        const liElement = document.createElement('li');
+        // make h2 element
+        const movieTitle = document.createElement('h2');
+        // add title to h2
+        movieTitle.innerText = `${data.results[i].title}`;
 
-    // const movieDiv = document.createElement('div')
-    // movieDiv.classList.add("movies")
-    
-    // const movieTitle = document.createElement('h2')
-    // movieTitle.innerText = `${item.title}`
+        // make img element
+        const movieImg = document.createElement('img');
+        // add src and alt to img
+        movieImg.src = `${data.results[i].image}`;
+        movieImg.alt = `${data.results[i].title}`;
+        
+        // add title and img to li
+        liElement.appendChild(movieTitle);
+        liElement.appendChild(movieImg);
 
-    // const movieImg = document.createElement('img')
-    // movieImg.src = `${item.image}`
-    // movieImg.alt = `${item.title}`
-
-
-    // movieDiv.appendChild(movieTitle)
-    // movieDiv.appendChild(movieImg)
-    // })
+        // add the li to ul
+        ulElement.appendChild(liElement);
+    }
 }
 
 // attach event listeners to the page
