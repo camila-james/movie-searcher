@@ -1,73 +1,84 @@
 
-
 // IMD API WEBSITE: https://imdb-api.com/api/#Top250Movies-header
 
+// initializing app
 const moviesApp = {};
 
-// --> API INFO:
+// api info
 moviesApp.apiKey = 'k_bsagv4oc';
 moviesApp.apiKey = 'k_af7vd4w1';
 moviesApp.apiUrl = 'https://imdb-api.com/en/API/SearchMovie/';
 
 
-// --> FUNCTION TO REQUEST INFO FROM THE API: 
-moviesApp.getMovies = () => { 
-    // make the url with the required api parameters
+// getting info from the API
+moviesApp.getMovies = (movie) => { 
 
     const url = new URL(moviesApp.apiUrl);
     url.search = new URLSearchParams({
-        apiKey: moviesApp.apiKey
+        apiKey: moviesApp.apiKey,
+        expression: ""
+        // this expression is where the user types in the search
     })
 
-// --> FETCH() TO MAKE API REQUEST: 
+// perfoming the api request
     fetch(url)
         .then((response) => {
             return response.json();
+            console.log(response)
         })
-        .then((jsonResponse) => {
-            console.log(jsonResponse);
-            moviesApp.displayMovies(jsonResponse);
+        .then((data) => {
+            moviesApp.displayMovies(data);
         })
+        // data is the json response 
 }
 
 
-// --> FUNCTION TO DISPLAY MOVIES ON THE PAGE:
-    moviesApp.displayMovies = (arrayOfMovies) => {
+// function to display the info on the page
+    moviesApp.displayMovies = (data) => {
 
-        const ul = document.querySelector('ul');
-        // for (let i = 0; i < 10; i++) 
-        arrayOfMovies.results.forEach((item) => {
+    // <div class="movies">
+    //    <ul>
+    //       <h2>title of movie</h2>
+    //       <img src="" alt="">
+    //    </ul>
+    // </div>
 
-        // create a list item element
-		const li = document.createElement('li');
+        data.results.forEach( (item) => {
+        // creating elements to display on page
+        // for (let i = 0; i < 10; i++)
 
-		// create a image element for inside the <li> 
-		const img = document.createElement('img');
+        const movieDiv = document.createElement('div')
+        movieDiv.classList.add("movies")
+        
+        const movieTitle = document.createElement('h2')
+        movieTitle.innerText = `${item.title}`
 
-		// add the content to the img element (src & alt text)
-		img.src = item.image;
-		img.alt = item.title;
+		const movieImg = document.createElement('img')
+        movieImg.src = `${item.image}`
+        movieImg.alt = `${item.title}`
 
-        li.innerHTML = `${item.title}`;
-		// appending the img element to the li
-		li.append(img);
-		// append li to the gallery ul
-		ul.append(li);
+
+        movieDiv.appendChild(movieTitle)
+        movieDiv.appendChild(movieImg)
         })
     }
 
-// --> FUNCTION TO ADD EVENT LISTENERS:
-    // run search after user types in movie name in search bar 
-    function handleClick(){
-        // search the API for the movie typed in search
+// attach event listeners to the page
+    moviesApp.setupEventListeners = () => {
+        document.getElementById("movieGenre").addEventListener("change", (event) => {
+            const genreChoice = event.target.value
+
+        })
     }
 
-    document.addEventListener('submit', handleClick)
+// init/calls functions
+    moviesApp.init = () => {
+        moviesApp.getMovies()
+        moviesApp.setupEventListeners()
+    }
 
-    // search button ... 
-
-    
-moviesApp.getMovies();
+// initializing app 
+    moviesApp.getMovies();
 
 
 
