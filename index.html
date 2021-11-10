@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles/style.css">
-    <script src="scripts/script.js"></script>
+
     <title>Document</title>
 </head>
 <body>
@@ -15,7 +15,7 @@
     <main>
         <div class="wrapper">
             <section class="search">
-                <form action="submit">
+                <form action="submit" id="form">
                     <div class="dropdown">
                         <button class="link" type="button">Genre</button>
                         <div class="dropdownMenu">
@@ -27,10 +27,9 @@
                         </div>
                     </div>
                     <div class="searchBox">
-                    <label for="movieGenre">Choose Genre:</label>
-
+                    <label for="text">Search for Movie</label>
                     <input type="text" id="text">
-                    <button class="search" type="button">Search</button>
+                    <button class="search">Search</button>
                     </div>
                 </form>
             </section>
@@ -46,5 +45,6 @@
     <footer>
         <p><a href="https://junocollege.com/">Created at Juno College by James & Camila</a></p>
     </footer>
+    <script src="scripts/script.js"></script>
 </body>
 </html>
