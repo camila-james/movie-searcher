@@ -32,7 +32,7 @@ header {
 
 main {
     display: flex;
-    // height: 64.6vh;
+    height: 64.6vh;
 }
 .search {
     padding-top: 20px;
@@ -79,17 +79,28 @@ button {
 
 .infoGrid {
     display: grid;
-    grid-template-columns: repeat(1,max-content);
-
-}
-.dropdownLinks button {
-    display: grid;
     grid-template-columns: repeat(3,max-content);
     gap:2rem;
+}
+.dropdownLinks button {
+    display: flex;
     background: none;
 }
 
+.movies {
+    display: flex;
+    flex-wrap: wrap;
+    .movie {
+        width: 20%;
+        img {
+            width: 100%;
+        }
+    }
+}
+
 footer {
+    position: relative;
+    bottom: 100%;
     background: black;
     text-align: center;
     font-family: $font;
@@ -102,5 +113,4 @@ footer {
     
         }
     }
-
 }

@@ -6,10 +6,10 @@ const moviesApp = {};
 
 // api info
 moviesApp.apiKey = 'k_bsagv4oc';
-moviesApp.apiKey = 'k_af7vd4w1';
+// moviesApp.apiKey = 'k_af7vd4w1';
 moviesApp.baseUrl = 'https://imdb-api.com/';
 moviesApp.searchMovieEndPoint = 'en/API/SearchMovie/';
-moviesApp.keywordEndPoint = 'en/API/SearchKeyword/';
+moviesApp.keywordEndPoint = 'en/API/SearchAll/';
 
 // let a = `${moviesApp.apiUrl}${apiKey}`
 
@@ -20,7 +20,7 @@ moviesApp.getMovies = (movie) => {
         apiKey: moviesApp.apiKey,
         expression: movie
         // this expression is where the user types in the search
-    })
+    });
 
 // perfoming the api request
     fetch(url)
@@ -30,7 +30,7 @@ moviesApp.getMovies = (movie) => {
         .then((data) => {
             console.log(data);
             moviesApp.displayMovies(data);
-        })
+        });
         // data is the json response 
 }
 
@@ -75,6 +75,7 @@ moviesApp.displayMovies = (data) => {
 
 // attach event listeners to the page
 moviesApp.setupEventListeners = () => {
+    // dropdown toggle
     document.addEventListener('click', e => {
         const isDropdownButton = e.target.matches("[data-dropdown-button]")
         if (!isDropdownButton && e.target.closest('[data-dropdown') != null) return
@@ -86,31 +87,61 @@ moviesApp.setupEventListeners = () => {
             currentDropdown.classList.toggle('active');
         }
 
-
         // closes dropdown that is open
         document.querySelectorAll("[data-dropdown].active").forEach(dropdown => {
             if (dropdown === currentDropdown) return
             dropdown.classList.remove('active');
+        });
+    });
+
+    function getGenreMovies(genre) { 
+        const url = new URL(`${moviesApp.baseUrl}${moviesApp.keywordEndPoint}`);
+        url.search = new URLSearchParams({
+            apiKey: moviesApp.apiKey,
+            expression: genre
+            // this expression is where the user types in the search
         })
+    
+        // perfoming the api request
+        fetch(url)
+            .then((response) => {
+                return response.json();
+            })
+            .then((data) => {
+                console.log(data);
+                moviesApp.displayMovies(data);
+            })
+            // data is the json response 
+    }
+
+    // if genre is clicked
+    const genres = document.getElementsByClassName('genre')
+    const genreArray = [];
+    // const dropdownLinks = dropdownMenu[0].
+    for (let i = 0; i < genres.length; i++) {
+        genreArray.push(genres[i]);
+    }
+    console.log(genreArray)
+    genreArray.forEach((genre) => {
+        genre.addEventListener('click',e => {
+            e.preventDefault();
+            getGenreMovies(genre.textContent);
+        });
     })
 
-    // document.getElementById("movieGenre").addEventListener("change", (event) => {
-    //     const genreChoice = event.target.value
 
-    // })
 
     document.querySelector('form').addEventListener('submit', (e) => {
         e.preventDefault();
         const userInput = document.getElementById('text').value;
         moviesApp.getMovies(userInput);
-    })
-
+    });
 }
 
 // init/calls functions
 moviesApp.init = () => {
-    moviesApp.getMovies("string")
-    moviesApp.setupEventListeners()
+    // moviesApp.getMovies("string");
+    moviesApp.setupEventListeners();
 }
 
 // initializing app 
