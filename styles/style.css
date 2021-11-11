@@ -274,6 +274,7 @@ main {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  height: 64.6vh;
 }
 
 .search {
@@ -333,19 +334,35 @@ button {
 
 .infoGrid {
   display: grid;
-  grid-template-columns: repeat(1, -webkit-max-content);
-  grid-template-columns: repeat(1, max-content);
-}
-
-.dropdownLinks button {
-  display: grid;
   grid-template-columns: repeat(3, -webkit-max-content);
   grid-template-columns: repeat(3, max-content);
   gap: 2rem;
+}
+
+.dropdownLinks button {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
   background: none;
 }
 
+.movies {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+.movies .movie {
+  width: 20%;
+}
+.movies .movie img {
+  width: 100%;
+}
+
 footer {
+  position: relative;
+  bottom: 100%;
   background: black;
   text-align: center;
   font-family: "Roboto", sans-serif;
