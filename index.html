@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles/style.css">
-
+    <script src="scripts/script.js" defer></script>
     <title>Document</title>
 </head>
 <body>
@@ -16,14 +16,19 @@
         <div class="wrapper">
             <section class="search">
                 <form action="submit" id="form">
-                    <div class="dropdown">
-                        <button class="link" type="button">Genre</button>
-                        <div class="dropdownMenu">
-                            dropdown content
-                            <!-- <ul> 
-                                <li>camila</li>
-                                <li>james</li>
-                            </ul> -->
+                    <div class="dropdown" data-dropdown>
+                        <button class="link" type="button" data-dropdown-button>Genre</button>
+                        <div class="dropdownMenu infoGrid">
+                            <div class="dropdownLinks">
+                                <button type="button">Action</button>
+                                <button type="button" href="#">Battle</button>
+                                <button type="button" href="#">Comedy</button>
+                                <button type="button" href="#">Drama</button>
+                                <button type="button" href="#">Horror</button>
+                                <button type="button" href="#">Love</button>
+                                <button type="button" href="#">Musical</button>
+                                <button type="button" href="#">Mystery</button>
+                            </div>
                         </div>
                     </div>
                     <div class="searchBox">
@@ -34,15 +39,13 @@
                 </form>
             </section>
             <!-- this is the format we are implemnting on js -->
-            <div class="movies">
-                <ul id="moviesList">
-                </ul>
+            <div class="movies" id="movies">
             </div>
         </div>
     </main>
     <footer>
         <p><a href="https://junocollege.com/">Created at Juno College by James & Camila</a></p>
     </footer>
-    <script src="scripts/script.js"></script>
+
 </body>
 </html>

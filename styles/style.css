@@ -245,6 +245,11 @@ html {
   font-size: 62.5%;
 }
 
+body {
+  background-color: #045DE9;
+  background-image: linear-gradient(315deg, #045DE9 0%, #09C6F9 74%);
+}
+
 .wrapper {
   max-width: 1920px;
   width: 85%;
@@ -319,11 +324,25 @@ button {
   transition: opacity 150ms ease-in-out, transform 150ms ease-in-out, -webkit-transform 150ms ease-in-out;
 }
 
-.dropdown > .link:focus + .dropdownMenu {
+.dropdown.active > .link + .dropdownMenu {
   opacity: 1;
   -webkit-transform: translateY(0px);
           transform: translateY(0px);
   pointer-events: auto;
+}
+
+.infoGrid {
+  display: grid;
+  grid-template-columns: repeat(1, -webkit-max-content);
+  grid-template-columns: repeat(1, max-content);
+}
+
+.dropdownLinks button {
+  display: grid;
+  grid-template-columns: repeat(3, -webkit-max-content);
+  grid-template-columns: repeat(3, max-content);
+  gap: 2rem;
+  background: none;
 }
 
 footer {

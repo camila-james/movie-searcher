@@ -28,6 +28,7 @@ moviesApp.getMovies = (movie) => {
             return response.json();
         })
         .then((data) => {
+            console.log(data);
             moviesApp.displayMovies(data);
         })
         // data is the json response 
@@ -43,13 +44,12 @@ moviesApp.displayMovies = (data) => {
         <img src="" alt="">
     </ul>
     </div> */
-    const ulElement = document.getElementById('moviesList');
-
+    const divElement = document.getElementById('movies');
+    divElement.innerHTML = '';
     // console.log();
     // loop through results array
     // for each element make and li and add h2+img to it
     for (let i = 0; i < data.results.length; i++) {
-        const liElement = document.createElement('li');
         // make h2 element
         const movieTitle = document.createElement('h2');
         // add title to h2
@@ -61,17 +61,39 @@ moviesApp.displayMovies = (data) => {
         movieImg.src = `${data.results[i].image}`;
         movieImg.alt = `${data.results[i].title}`;
         
-        // add title and img to li
-        liElement.appendChild(movieTitle);
-        liElement.appendChild(movieImg);
 
-        // add the li to ul
-        ulElement.appendChild(liElement);
+        const movieElement = document.createElement('div');
+        movieElement.classList.add('movie');
+        // add title and img to div
+        movieElement.appendChild(movieTitle);
+        movieElement.appendChild(movieImg);
+
+        // add the content div to container div
+        document.getElementById('movies').appendChild(movieElement);
     }
 }
 
 // attach event listeners to the page
 moviesApp.setupEventListeners = () => {
+    document.addEventListener('click', e => {
+        const isDropdownButton = e.target.matches("[data-dropdown-button]")
+        if (!isDropdownButton && e.target.closest('[data-dropdown') != null) return
+
+        let currentDropdown
+
+        if (isDropdownButton) {
+            currentDropdown = e.target.closest('[data-dropdown');
+            currentDropdown.classList.toggle('active');
+        }
+
+
+        // closes dropdown that is open
+        document.querySelectorAll("[data-dropdown].active").forEach(dropdown => {
+            if (dropdown === currentDropdown) return
+            dropdown.classList.remove('active');
+        })
+    })
+
     // document.getElementById("movieGenre").addEventListener("change", (event) => {
     //     const genreChoice = event.target.value
 
