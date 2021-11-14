@@ -1,23 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
     <link rel="stylesheet" href="styles/style.css">
     <script src="scripts/script.js" defer></script>
-    <title>Document</title>
+    <!-- font awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
+
+    <title>IMDb Movie Searcher</title>
+
 </head>
 <body>
+
     <header>
-        <h1>Movie Searcher</h1>
+        <h1 class="title">What movie should i watch tonight? 🎬 🍿</h1>
     </header>
+
     <main>
         <div class="wrapper">
             <section class="search">
                 <form action="submit" id="form">
+
+                    <!-- this is the genre dropdown -->
                     <div class="dropdown" data-dropdown>
+                        
                         <button class="link" type="button" data-dropdown-button>Genre</button>
+                        
                         <div class="dropdownMenu infoGrid">
                             <div class="dropdownLinks">
                                 <button class="genre" type="button">Action</button>
@@ -36,10 +48,12 @@
                             </div>
                         </div>
                     </div>
+
+                    <!-- this is the searchbox -->
                     <div class="searchBox">
-                    <label for="text">Search for Movie</label>
+                    <label for="text">Browse Movies:</label>
                     <input type="text" id="text">
-                    <button class="search">Search</button>
+                    <button class="search"> <i class="fas fa-search"></i> </button>
                     </div>
                 </form>
             </section>
@@ -48,8 +62,11 @@
             </div>
         </div>
     </main>
+
     <footer>
-        <p><a href="https://junocollege.com/">Created at Juno College by James & Camila</a></p>
+        <p>
+            <a href="https://junocollege.com/">Created at Juno College by James & Camila 🎬</a>
+        </p>
     </footer>
 
 </body>
