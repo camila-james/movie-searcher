@@ -11,8 +11,9 @@ html {
     font-size: 62.5%;
 }
 body {
-    background-color: #045DE9;
-    background-image: linear-gradient(315deg, #045DE9 0%, #09C6F9 74%);
+    background-color: #eec0c6;
+    background-image: linear-gradient(315deg, #eec0c6 0%, #7ee8fa 74%);
+
 }
 .wrapper {
     max-width: 1920px;
@@ -101,7 +102,7 @@ button {
 footer {
     position: relative;
     bottom: 100%;
-    background: black;
+    background: red;
     text-align: center;
     font-family: $font;
     font-size: 1.8rem;
@@ -110,7 +111,6 @@ footer {
         a {
             color:white;
             text-decoration: none;
-    
         }
     }
 }
