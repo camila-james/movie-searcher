@@ -5,8 +5,8 @@
 const moviesApp = {};
 
 // api info
-moviesApp.apiKey = 'k_bsagv4oc';
-// moviesApp.apiKey = 'k_af7vd4w1';
+// moviesApp.apiKey = 'k_bsagv4oc';
+moviesApp.apiKey = 'k_af7vd4w1';
 moviesApp.baseUrl = 'https://imdb-api.com/';
 moviesApp.searchMovieEndPoint = 'en/API/SearchMovie/';
 moviesApp.keywordEndPoint = 'en/API/SearchAll/';

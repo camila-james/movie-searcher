@@ -3,18 +3,43 @@
 /* Portrait tablet and small desktops */
 @media (max-width: 940px) {
 
-h1 {
-    text-align: center;
-}
+    .dropdown {
+        display: none;
+    }
+
+    div.movie:nth-child(n) {
+    width: 100%;
+    }
 
 }
+
 
 /* Landscape phone to portrait tablet */
 @media (max-width: 768px) {
+
+    .searchBox {
+    display: flex;
+    flex-direction: column;
+    
+    label {
+        margin-bottom: 15px;
+    }
+    .text{
+        margin-bottom: 15px;
+        text-align: center;
+    }
+    .search{
+        background: none;
+    }
+    }
 
 }
 
 /* Landscape phones and down */
 @media (max-width: 480px) {
+
+    h1.title{
+        font-size: 5.5rem;
+    }
 
 }
