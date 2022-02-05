@@ -11,11 +11,11 @@ moviesApp.baseUrl = 'https://imdb-api.com/';
 moviesApp.searchMovieEndPoint = 'en/API/SearchMovie/';
 moviesApp.keywordEndPoint = 'en/API/SearchAll/';
 
-// let a = `${moviesApp.apiUrl}${apiKey}`
 
 // getting info from the API
 moviesApp.getMovies = (movie) => { 
     const url = new URL(`${moviesApp.baseUrl}${moviesApp.searchMovieEndPoint}`);
+    
     url.search = new URLSearchParams({
         apiKey: moviesApp.apiKey,
         expression: movie
@@ -38,15 +38,10 @@ moviesApp.getMovies = (movie) => {
 // function to display the info on the page
 moviesApp.displayMovies = (data) => {
 
-    /* <div class="movies">
-    <ul>
-        <h2>title of movie</h2>
-        <img src="" alt="">
-    </ul>
-    </div> */
     const divElement = document.getElementById('movies');
+
     divElement.innerHTML = '';
-    // console.log();
+
     // loop through results array
     // for each element make and li and add h2+img to it
     for (let i = 0; i < data.results.length; i++) {
@@ -129,8 +124,6 @@ moviesApp.setupEventListeners = () => {
         });
     })
 
-
-
     document.querySelector('form').addEventListener('submit', (e) => {
         e.preventDefault();
         const userInput = document.getElementById('text').value;
@@ -138,9 +131,9 @@ moviesApp.setupEventListeners = () => {
     });
 }
 
+
 // init/calls functions
 moviesApp.init = () => {
-    // moviesApp.getMovies("string");
     moviesApp.setupEventListeners();
 }
 
