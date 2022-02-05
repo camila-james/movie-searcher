@@ -7,67 +7,59 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <link rel="stylesheet" href="styles/style.css">
-    <script src="scripts/script.js" defer></script>
     <!-- font awesome -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
-
-    <title>IMDb Movie Searcher</title>
-
+    
+    <title>Movie Searcher</title>
+    
 </head>
 <body>
-
+    <div class="wrapper">
+        
     <header>
-        <h1 class="title">What movie should i watch tonight? 🎬 🍿</h1>
+        <h1 class="title">Hackflix🍿</h1>
     </header>
-
+<!-- this is the genre form -->
     <main>
-        <div class="wrapper">
-            <section class="search">
-                <form action="submit" id="form">
-
-                    <!-- this is the genre dropdown -->
-                    <div class="dropdown" data-dropdown>
-                        
-                        <button class="link" type="button" data-dropdown-button>Genre</button>
-                        
-                        <div class="dropdownMenu infoGrid">
-                            <div class="dropdownLinks">
-                                <button class="genre" type="button">Action</button>
-                                <button class="genre" type="button">Battle</button>
-                                <button class="genre" type="button">Comedy</button>
-                            </div>
-                            <div class="dropdownLinks">
-                                <button class="genre" type="button">Drama</button>
-                                <button class="genre" type="button">Horror</button>
-                                <button class="genre" type="button">Love</button>
-                            </div>
-                            <div class="dropdownLinks">
-                                <button class="genre" type="button">Musical</button>
-                                <button class="genre" type="button">Mystery</button>
-                                <button class="genre" type="button">Sci-fi</button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- this is the searchbox -->
-                    <div class="searchBox">
-                    <label for="text">Browse Movies:</label>
-                    <input type="text" id="text">
-                    <button class="search"> <i class="fas fa-search"></i> </button>
-                    </div>
+        <section class="search">
+            <div>
+                <form action="submit" class="custom-selector" id="form">
+                    <label for="genre">Select a Genre:</label>
+                    <select name="genre" id="genre">
+                        <option value="28">Action</option>
+                        <option value="12">Adventure</option>
+                        <option value="16">Animation</option>
+                        <option value="35">Comedy</option>
+                        <option value="80">Crime</option>
+                        <option value="99">Documentary</option>
+                        <option value="18">Drama</option>
+                        <option value="14">Fantasy</option>
+                        <option value="27">Horror</option>
+                        <option value="10402">Music</option>
+                        <option value="10749">Romance</option>
+                        <option value="878">Science Fiction</option>
+                        <option value="10770">TV Movie</option>
+                        <option value="53">Thriller</option>
+                        <option value="10752">War</option>
+                        <option value="37">Western</option>
+                    </select>
                 </form>
-            </section>
-            <!-- this is the format we are implemnting on js -->
-            <div class="movies" id="movies">
             </div>
-        </div>
-    </main>
-
+        </section>
+            
+<!-- this is the format we are implementing on js for all the movies to show up -->
+        <section>
+            <div class="movies" id="movies"> </div>
+        </section>
+            
+    </div>
+</main>
+    
     <footer>
-        <p>
-            <a href="https://junocollege.com/">Created at Juno College by James & Camila 🎬</a>
-        </p>
+        Made at Juno College by James & Camila
     </footer>
-
+<!-- JS script -->
+    <script src="scripts/myScript.js" defer></script>
+    
 </body>
 </html>
