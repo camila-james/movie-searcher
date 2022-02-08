@@ -1,45 +1,18 @@
 
 
-/* Portrait tablet and small desktops */
-@media (max-width: 940px) {
+@media (max-width: 1264px) {
 
-    .dropdown {
-        display: none;
+    #movies{
+        grid-template-columns: 50% 50%;
     }
-
-    div.movie:nth-child(n) {
-    width: 100%;
-    }
-
 }
 
 
 /* Landscape phone to portrait tablet */
-@media (max-width: 768px) {
+@media (max-width: 817px) {
 
-    .searchBox {
-    display: flex;
-    flex-direction: column;
-    
-    label {
-        margin-bottom: 15px;
-    }
-    .text{
-        margin-bottom: 15px;
-        text-align: center;
-    }
-    .search{
-        background: none;
-    }
-    }
-
-}
-
-/* Landscape phones and down */
-@media (max-width: 480px) {
-
-    h1.title{
-        font-size: 5.5rem;
+    #movies{
+        grid-template-columns: 100%;
     }
 
 }

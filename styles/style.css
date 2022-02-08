@@ -238,42 +238,15 @@ html {
   overflow: hidden;
 }
 
-/* Portrait tablet and small desktops */
-@media (max-width: 940px) {
-  .dropdown {
-    display: none;
-  }
-
-  div.movie:nth-child(n) {
-    width: 100%;
+@media (max-width: 1264px) {
+  #movies {
+    grid-template-columns: 50% 50%;
   }
 }
 /* Landscape phone to portrait tablet */
-@media (max-width: 768px) {
-  .searchBox {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
-  }
-  .searchBox label {
-    margin-bottom: 15px;
-  }
-  .searchBox .text {
-    margin-bottom: 15px;
-    text-align: center;
-  }
-  .searchBox .search {
-    background: none;
-  }
-}
-/* Landscape phones and down */
-@media (max-width: 480px) {
-  h1.title {
-    font-size: 5.5rem;
+@media (max-width: 817px) {
+  #movies {
+    grid-template-columns: 100%;
   }
 }
 main {
